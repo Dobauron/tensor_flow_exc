@@ -1,5 +1,5 @@
 import tensorflow as tf
-
+import numpy as np
 IRIS_TRAINING = 'iris_training.csv'
 
 # dataset = tf.data.experimental.CsvDataset(filenames=IRIS_TRAINING,
@@ -18,9 +18,13 @@ select_cols = [0,1,2,3]
 # Create a dataset from the CSV file
 dataset = tf.data.experimental.CsvDataset(IRIS_TRAINING, record_defaults, header= True)
 
-# Iterate over the dataset
-print(dataset)
-print(type(dataset))
 
-for el in dataset.as_numpy_iterator():
-    print(el)
+# # Iterate over the dataset
+# print(dataset)
+# print(type(dataset))
+#
+# for el in dataset.as_numpy_iterator():
+#     print(el)
+
+
+classifier = tf.estimator.LinearClassifier()
